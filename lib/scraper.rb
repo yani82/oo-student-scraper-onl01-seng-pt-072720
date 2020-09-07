@@ -24,7 +24,10 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     profile - Nokogiri::HTML(open(profile_url))
+    #html = open(profile_url) 
+    #doc = Nokogiri::HTML(html) 
     profile_hash = profile.css('.vitals-container').map do |detail| 
+      #doc.css().each do 
       {
         binding.pry 
         :bio => de 

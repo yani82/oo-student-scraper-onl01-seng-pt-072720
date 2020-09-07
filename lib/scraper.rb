@@ -7,7 +7,9 @@ require 'pry'
 class Scraper
 
   def self.scrape_index_page(index_url)
+    # student [] 
     doc = Nokogir::HTML(open(index_url))
+    #doc = Nokogiri::HTML(html) #converts to nodesets 
     doc.css('.student-card').map do |student| 
       {
         :name => student.css('.student-name').text,

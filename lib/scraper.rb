@@ -28,7 +28,7 @@ class Scraper
       {
         binding.pry 
         :bio => de 
-        :profile_q =>
+        :profile_quote =>
         :twitter => 
         :linkedin => 
         :github => 

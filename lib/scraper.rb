@@ -7,8 +7,8 @@ require 'pry'
 class Scraper
 
 
-  def self.scrape_index_page(index_url)	  def self.scrape_index_page(index_url)
-
+  def self.scrape_index_page(index_url)	  
+    
     doc = Nokogiri::HTML(open(index_url))
     student_array = []
     doc2 = doc.css(".roster-cards-container .student-card")
@@ -23,7 +23,7 @@ class Scraper
     end
 
 
-  def self.scrape_profile_page(profile_url)	  def self.scrape_profile_page(profile_url)
+  def self.scrape_profile_page(profile_url)	  
 
     doc = Nokogiri::HTML(open(profile_url))
     profile_hash = {}

@@ -10,7 +10,7 @@ class Scraper
     # student [] 
     doc = Nokogir::HTML(open(index_url))
     #doc = Nokogiri::HTML(html) #converts to nodesets 
-    doc.css('.student-card').map do |student| 
+    doc.css('.student-card').map do |s| 
       #or doc.css('div.student-card').each do |student|
       {
         :name => student.css('.student-name').text,

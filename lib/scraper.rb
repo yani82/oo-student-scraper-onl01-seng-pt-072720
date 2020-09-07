@@ -45,5 +45,4 @@ class Scraper
     profile_hash
     end
 
-
 end

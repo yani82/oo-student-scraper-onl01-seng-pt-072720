@@ -2,6 +2,8 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
+#"https://learn-co-curriculum.github.io/student-scraper-test-page/"
+
 class Scraper
 
   def self.scrape_index_page(index_url)

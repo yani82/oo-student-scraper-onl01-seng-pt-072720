@@ -14,7 +14,8 @@ class Scraper
       {
         :name => student.css('.student-name').text,
         :location => student.css('.student-location').text,
-        :profile_url => student.css('a').first['href']
+        :profile_url => student.css('a').first['href'] 
+        #"a" = anchor tag
       }
     end 
     

@@ -6,47 +6,17 @@ require 'pry'
 
 class Scraper
 
-  def self.scrape_index_page(index_url)
-    # student [] 
-    doc = Nokogir::HTML(open(index_url))
-    #doc = Nokogiri::HTML(html) #converts to nodesets 
-    doc.css('.student-card').map do |s| 
-      #or doc.css('div.student-card').each do |student|
-      {
-        :name => student.css('.student-name').text,
-        :location => student.css('.student-location').text,
-        :profile_url => student.css('a').first['href'] 
-        #"a" = anchor tag
+
+  def self.scrape_index_page(index_url)	  def self.scrape_index_page(index_url)
+
+    doc = Nokogiri::HTML(open(index_url))
+    student_array = []
+    doc2 = doc.css(".roster-cards-container .student-card")
+    doc2.each do |student_card_div|
+      student_array << { 
+        :name => student_card_div.css(".student-name").text.strip,
+        :location => student_card_div.css(".student-location").text.strip,
+        :profile_url => student_card_div.css("a").attribute("href").value
       }
-    end 
-    
-  end
-
-  def self.scrape_profile_page(profile_url)
-    profile - Nokogiri::HTML(open(profile_url))
-    #html = open(profile_url) 
-    #doc = Nokogiri::HTML(html) 
-    profile_hash = profile.css('.vitals-container').map do |detail| 
-      #doc.css().each do 
-      {
-        binding.pry 
-        :bio => de 
-        :profile_quote =>
-        :twitter => 
-        :linkedin => 
-        :github => 
-        :blog => 
-      }
-    end 
-    profile_hash[0]
-  end
-
-end
-
-#student_card = doc.css('.student-card')
-#student_names = student_card.css('.student-name').text 
-#student_locations = student_card.css('.student-location').text 
-#student_profile = student_card.css('a').first[href]
-
-#details-container 
-
+    end
+    student_array
